@@ -1,1 +1,1 @@
-"Foundation Sites typings" 
+Foundation Sites typings
