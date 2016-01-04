@@ -1,7 +1,10 @@
-// Type definitions for Foundation Sites v6.0.4
+// Type definitions for Foundation Sites v6.1.0
 // Project: http://foundation.zurb.com/
+// Github: https://github.com/zurb/foundation-sites
+//
 // Definitions by: Sam Vloeberghs <https://github.com/samvloeberghs/>
 // Definitions: https://github.com/samvloeberghs/foundation-sites-typings
+//
 // Attention:
 // Please contribute on updating versions! Happy to merge pull-requests
 
@@ -9,7 +12,8 @@ declare module FoundationSites {
 
     // http://foundation.zurb.com/sites/docs/abide.html#javascript-reference
     interface Abide {
-        requiredChedck(element:Object): boolean;
+        requiredChecked(element:Object): boolean;
+        findFormError($el:Object): Object;
         findLabel(element:Object): boolean;
         addErrorClasses(element:Object): void;
         removeErrorClasses(element:Object): void;
@@ -17,7 +21,9 @@ declare module FoundationSites {
         validateForm(element:Object): void;
         validateText(element:Object): boolean;
         validateRadio(group:string): boolean;
+        matchValidation($el:Object, validators:string, required:boolean): boolean;
         resetForm($form:Object): void;
+        destroy(): void;
     }
 
     interface IAbidePatterns {
@@ -40,9 +46,13 @@ declare module FoundationSites {
     }
 
     interface IAbideOptions {
-        slideSpeed?: number;
-        multiOpen?: boolean;
-        patters?: IAbidePatterns;
+        validateOn?: string;
+        labelErrorClass?: string;
+        inputErrorClass?: string;
+        formErrorSelector?: string;
+        formErrorClass?: string;
+        liveValidate?: boolean;
+        validators?:any;
     }
 
     // http://foundation.zurb.com/sites/docs/accordion.html#javascript-reference
@@ -56,10 +66,12 @@ declare module FoundationSites {
     interface IAccordionOptions {
         slideSpeed?: number
         multiOpen?: boolean;
+        allowAllClosed?: boolean;
     }
 
     // http://foundation.zurb.com/sites/docs/accordion-menu.html#javascript-reference
     interface AccordionMenu {
+        hideAll(): void;
         toggle($target:JQuery): void;
         down($target:JQuery, firstTime:boolean): void;
         up($target:JQuery): void;
@@ -73,7 +85,8 @@ declare module FoundationSites {
 
     // http://foundation.zurb.com/sites/docs/drilldown-menu.html#javascript-reference
     interface Drilldown {
-        _hideAll($elem:JQuery): void;
+        _hideAll(): void;
+        _back($elem:JQuery): void;
         _show($elem:JQuery): void;
         _hide($elem:JQuery): void;
         destroy(): void;
@@ -97,11 +110,13 @@ declare module FoundationSites {
     interface IDropdownOptions {
         hoverDelay?: number;
         hover?: boolean;
+        hoverPane?: boolean;
         vOffset?: number;
         hOffset?: number;
         positionClass?: string;
         trapFocus?: boolean;
         autoFocus?: boolean;
+        closeOnClick?: boolean;
     }
 
     // http://foundation.zurb.com/sites/docs/dropdown-menu.html#javascript-reference
@@ -115,21 +130,26 @@ declare module FoundationSites {
         hoverDelay?: number;
         clickOpen?: boolean;
         closingTime?: number;
-        alignments?: string;
-        verticalClasss?: string;
-        rightClasss?: string;
+        alignment?: string;
+        closeOnClick?:boolean;
+        verticalClass?: string;
+        rightClass?: string;
+        forceFollow?: boolean;
     }
 
     // http://foundation.zurb.com/sites/docs/equalizer.html#javascript-reference
     interface Equalizer {
         getHeights(element:Object): Array<any>;
-        applyHeight($eqParent:Object, heights:Array<any>): void;
+        getHeightsByRow(cb:Function): void;
+        applyHeight(heights:Array<any>): void;
+        applyHeightByRow(groups:Array<any>):void;
         destroy(): void;
     }
 
     interface IEqualizerOptions {
         equalizeOnStack?: boolean;
-        throttleInterval?: number;
+        equalizeByRow?: boolean;
+        equalizeOn?:string;
     }
 
     // http://foundation.zurb.com/sites/docs/interchange.html#javascript-reference
@@ -155,13 +175,15 @@ declare module FoundationSites {
         threshold?: number;
         activeClass?: string;
         deepLinking?: boolean;
+        barOffset: number;
     }
 
     // http://foundation.zurb.com/sites/docs/offcanvas.html#javascript-reference
     interface OffCanvas {
+        reveal(isRevealed:boolean): void;
         open(event:Object, trigger:JQuery): void;
-        toggle(event:Object, trigger:JQuery): void;
         close(): void;
+        toggle(event:Object, trigger:JQuery): void;
         destroy(): void;
     }
 
@@ -171,6 +193,7 @@ declare module FoundationSites {
         position?: string;
         forceTop?: boolean;
         isRevealed?: boolean;
+        isRevealed?: boolean;
         revealOn?: string;
         autoFocus?: boolean;
         revealClass?: string;
@@ -178,8 +201,8 @@ declare module FoundationSites {
 
     // http://foundation.zurb.com/sites/docs/orbit.html#javascript-reference
     interface Orbit {
-        changeSlide(isLTR:boolean, chosenSlide?:Object, idx?:number): void;
         geoSync(): void;
+        changeSlide(isLTR:boolean, chosenSlide?:Object, idx?:number): void;
         destroy(): void;
     }
 
@@ -201,6 +224,7 @@ declare module FoundationSites {
         boxOfBullets?: string;
         nextClass?: string;
         prevClass?: string;
+        useMUI?: boolean;
     }
 
     // http://foundation.zurb.com/sites/docs/reveal.html#javascript-reference
