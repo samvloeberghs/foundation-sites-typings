@@ -1,4 +1,4 @@
-// Type definitions for Foundation Sites v6.1.0
+// Type definitions for Foundation Sites v6.1.x
 // Project: http://foundation.zurb.com/
 // Github: https://github.com/zurb/foundation-sites
 //
@@ -278,7 +278,7 @@ declare module FoundationSites {
         _pauseListeners(scrollListener:string): void;
         _calc(checkSizes:boolean, scroll:number): void;
         destroy(): void;
-        emCalc(number:any): void;
+        emCalc(Number:number): void;
     }
 
     interface IStickyOptions {
@@ -303,7 +303,11 @@ declare module FoundationSites {
     }
 
     interface ITabsOptions {
-        animate?: boolean;
+        autoFocus?: boolean;
+        wrapOnKeys?: boolean;
+        matchHeight?: boolean;
+        linkClass?: string;
+        panelClass?: string;
     }
 
     // http://foundation.zurb.com/sites/docs/toggler.html#javascript-reference
@@ -352,14 +356,15 @@ declare module FoundationSites {
 
     interface KeyBoard {
         parseKey(event:any): string;
+        handleKey(event:any, component:any, functions:any):void;
         findFocusable($element:Object): Object;
     }
 
     interface MediaQuery {
         get(size:string): string;
         atLeast(size:string): boolean;
-        queries:Array<any>;
-        current:any;
+        queries:Array<string>;
+        current:string;
     }
 
     interface Motion {
@@ -372,9 +377,8 @@ declare module FoundationSites {
     }
 
     interface Nest {
-        // TODO
-        //Feather: function(menu, type)
-        // Burn: function(menu, type){
+        Feather(menu:any, type:any);
+        Burn(menu:any, type:any);
     }
 
     interface Timer {
@@ -398,6 +402,7 @@ declare module FoundationSites {
         plugin(plugin:Object, name:string): void;
         registerPlugin(plugin:Object): void;
         unregisterPlugin(plugin:Object): void;
+        reInit(plugins:Array<any>):void;
         GetYoDigits(length:number, namespace?:string): string;
         reflow(elem:Object, plugins?:Array<string>|string): void;
         getFnName(fn:string): string;
@@ -406,7 +411,6 @@ declare module FoundationSites {
         util : {
             throttle(func:(...args:any[]) => any, delay:number): (...args:any[]) => any;
         };
-        onImagesLoaded(images:Object, cb:Function): void;
 
         Abide(element:Object, options?:IAbideOptions): Abide;
         Accordion(element:Object, options?:IAccordionOptions): Accordion;
@@ -445,8 +449,8 @@ interface JQuery {
     foundation(method?:string|Array<any>) : JQuery;
 }
 
-declare var Foundation:FoundationSites.FoundationSitesStatic;
+declare var FoundationSites:FoundationSites.FoundationSitesStatic;
 
-declare module "Foundation" {
-    export = Foundation;
+declare module "FoundationSites" {
+    export = FoundationSites;
 }
