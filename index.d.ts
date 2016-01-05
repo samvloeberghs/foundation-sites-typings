@@ -449,8 +449,8 @@ interface JQuery {
     foundation(method?:string|Array<any>) : JQuery;
 }
 
-declare var FoundationSites:FoundationSites.FoundationSitesStatic;
+declare var Foundation:FoundationSites.FoundationSitesStatic;
 
-declare module "FoundationSites" {
-    export = FoundationSites;
+declare module "Foundation" {
+    export = Foundation;
 }
