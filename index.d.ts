@@ -175,7 +175,7 @@ declare module FoundationSites {
         threshold?: number;
         activeClass?: string;
         deepLinking?: boolean;
-        barOffset: number;
+        barOffset?: number;
     }
 
     // http://foundation.zurb.com/sites/docs/offcanvas.html#javascript-reference
