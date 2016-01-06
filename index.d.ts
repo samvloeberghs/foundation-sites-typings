@@ -1,4 +1,4 @@
-// Type definitions for Foundation Sites v6.1.x
+// Type definitions for Foundation Sites v6.1.1
 // Project: http://foundation.zurb.com/
 // Github: https://github.com/zurb/foundation-sites
 //
