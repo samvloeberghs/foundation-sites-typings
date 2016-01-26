@@ -411,23 +411,23 @@ declare module FoundationSites {
             throttle(func:(...args:any[]) => any, delay:number): (...args:any[]) => any;
         };
 
-        Abide(element:Object, options?:IAbideOptions): Abide;
-        Accordion(element:Object, options?:IAccordionOptions): Accordion;
-        AccordionMenu(element:Object, options?:IAccordionMenuOptions): AccordionMenu;
-        DrillDown(element:Object, options?:IDrilldownOptions): Drilldown;
-        Dropdown(element:Object, options?:IDropdownOptions): Dropdown;
-        DropdownMenu(element:Object, options?:IDropdownMenuOptions): DropdownMenu;
-        Equalizer(element:Object, options?:IEqualizerOptions): Equalizer;
-        Interchange(element:Object, options?:IInterchangeOptions): Interchange;
-        Magellan(element:Object, options?:IMagellanOptions): Magellan;
-        OffCanvas(element:Object, options?:IOffCanvasOptions): OffCanvas;
-        Orbit(element:Object, options?:IOrbitOptions): Orbit;
-        Reveal(element:Object, options?:IRevealOptions): Reveal;
-        Slider(element:Object, options?:ISliderOptions): Slider;
-        Sticky(element:Object, options?:IStickyOptions): Sticky;
-        Tabs(element:Object, options?:ITabsOptions): Tabs;
-        Toggler(element:Object, options?:ITogglerOptions): Toggler;
-        Tooltip(element:Object, options?:ITooltipOptions): Tooltip;
+        Abide(element:Object, options?:IAbideOptions): void;
+        Accordion(element:Object, options?:IAccordionOptions): void;
+        AccordionMenu(element:Object, options?:IAccordionMenuOptions): void;
+        DrillDown(element:Object, options?:IDrilldownOptions): void;
+        Dropdown(element:Object, options?:IDropdownOptions): void;
+        DropdownMenu(element:Object, options?:IDropdownMenuOptions): void;
+        Equalizer(element:Object, options?:IEqualizerOptions): void;
+        Interchange(element:Object, options?:IInterchangeOptions): void;
+        Magellan(element:Object, options?:IMagellanOptions): void;
+        OffCanvas(element:Object, options?:IOffCanvasOptions): void;
+        Orbit(element:Object, options?:IOrbitOptions): void;
+        Reveal(element:Object, options?:IRevealOptions): void;
+        Slider(element:Object, options?:ISliderOptions): void;
+        Sticky(element:Object, options?:IStickyOptions): void;
+        Tabs(element:Object, options?:ITabsOptions): void;
+        Toggler(element:Object, options?:ITogglerOptions): void;
+        Tooltip(element:Object, options?:ITooltipOptions): void;
 
         // utils
         Box: Box;
